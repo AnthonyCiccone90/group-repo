@@ -3,9 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style.css">
     <title>MTG Project</title>
 </head>
 <body>
-<h1>Hey</h1>
+<header>MTG Card Search!</header>
+<section>
+    <form>
+        <input id="search" placeholder="Search a Card!">
+    </form>
+    <select name="params" id="options">
+        <option value="name">Name</option>
+        <option value="cmc">Converted Mana Cost</option>
+        <option value="type">Type</option>
+        <option value="subtype">Subtype</option>
+        <option value="rarity">Rarity</option>
+        <option value="artist">Artist</option>
+    </select> 
+</section>
+<section>
+    <div id="card-display"></div>
+    <div id="card-artist"></div>
+    <div id="card-info"></div>
+</section>
+<script src="./assets/script.js"></script>
 </body>
 </html>
