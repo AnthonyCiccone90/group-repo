@@ -1,14 +1,29 @@
 
+body {
+    background-color: #4F4F4F;
+}
+
 header {
-    background-color: black;
-    color: #F1E84D;
-    text-align: center;
-    padding: 50px;
+    background-image: url("./Pictures/manas.png");
+    background-repeat: no-repeat;
+    background-position: bottom -25px center;
+    padding: 40px 0px 50px 0px;
+    border-radius: 20px;
+    margin-bottom: 10px;
 }
 
 h1 {
+    color: white;
+    stroke: black .5px;
+    text-align: center;
     font-size: 75px;
     font-family: 'Foldit', cursive;
     font-family: 'Handjet', cursive;
     font-family: 'MedievalSharp', cursive;
+}
+form {
+    background-color: black;
+    margin-top: 10px;
+    padding: 50px;
+    border-radius: 50px;
 }
