@@ -1,13 +1,24 @@
 
+body {
+    background-color: #4F4F4F;
+}
+
 header {
-    background-color: black;
     color: #F1E84D;
     text-align: center;
-    padding: 50px;
+    padding: 40px;
+    border-radius: 20px;
+    margin-bottom: 10px;
 }
 h1 {
     font-size: 75px;
     font-family: 'Foldit', cursive;
     font-family: 'Handjet', cursive;
     font-family: 'MedievalSharp', cursive;
+}
+form {
+    background-color: black;
+    margin-top: 10px;
+    padding: 50px;
+    border-radius: 50px;
 }
