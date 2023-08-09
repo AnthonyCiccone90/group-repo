@@ -1,11 +1,11 @@
 # group-repo
 
 ### User Story
-AS A
+AS A Magic The Gathering enthusiasts 
 <br>
-I WANT
+I WANT a card searching application 
 <br>
-SO THAT
+SO THAT I can view card statistics and locate the cards' artists
 <hr>
 
 ### Purpose
