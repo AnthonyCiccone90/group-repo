@@ -1,6 +1,7 @@
 var searchedWord = document.getElementById("search")
 var submit = document.querySelector("#submit")
 var cards = document.querySelector("#card-display")
+var imagesPop = []
 
 function callScryfall(event) {
     event.preventDefault()
@@ -15,12 +16,16 @@ function callScryfall(event) {
         })
         .then((data) => {
             console.log(data)
-            var cardsFound = []
+            var cardsFound = data.data
+            for (let index = 0; index < cardsFound.length; index++) {
+                const element = cardsFound[index];
                 var cardIMG = document.createElement("img")
-                cardIMG.src = (data.data[0].image_uris.png)
+                cardIMG.src = (data.data[index].image_uris.normal)
                 cards.appendChild(cardIMG)
+                
+            }
             })
-
-        };
+        }
+;
 
 submit.addEventListener("click", callScryfall)
