@@ -1,0 +1,13 @@
+
+header {
+    background-color: black;
+    color: #F1E84D;
+    text-align: center;
+    padding: 50px;
+}
+h1 {
+    font-size: 75px;
+    font-family: 'Foldit', cursive;
+    font-family: 'Handjet', cursive;
+    font-family: 'MedievalSharp', cursive;
+}
