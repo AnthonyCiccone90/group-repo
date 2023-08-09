@@ -27,3 +27,11 @@ form {
     padding: 50px;
     border-radius: 50px;
 }
+
+img {
+    margin: 10px 5px;
+    border-radius: 25px;
+}
+img:hover {
+    transform: scale(1.4);
+}
