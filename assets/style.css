@@ -40,16 +40,21 @@ form {
 } 
 
 #cards img {
-    margin: 20px 15px;
     border-radius: 25px;
     width: 325px;
     height: 500px;
-    padding: 5px 5px 50px 5px;
+    padding: 5px 5px 5px 5px;
     background-color: black;
     color: white;
 }
+#cards div{
+    background-color: black;
+    color: white;
+    border-radius: 30px;
+    margin: 10px;
+}
 
-#cards img:hover {
+.hover:hover {
     transform: scale(1.2);
 }
 
