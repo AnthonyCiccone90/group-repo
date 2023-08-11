@@ -1,4 +1,4 @@
-# group-repo
+# Knockoff Gatherer
 
 ### User Story
 AS A Magic The Gathering enthusiasts 
