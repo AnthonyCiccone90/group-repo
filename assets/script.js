@@ -8,7 +8,7 @@ function callScryfall(event) {
     event.preventDefault()
     var userInput = searchedWord.value
     console.log(userInput)
-    var reqApi = `https://api.scryfall.com/cards/search?q=${userInput}`
+    var reqApi = `https://api.magicthegathering.io/v1/cards?name=${userInput}`
 
     fetch(reqApi)
         .then((response) => {
@@ -17,11 +17,11 @@ function callScryfall(event) {
         })
         .then((data) => {
             console.log(data)
-            var cardsFound = data.data
+            var cardsFound = data.cards
             for (let index = 0; index < cardsFound.length; index++) {
                 const element = cardsFound[index];
                 var cardIMG = document.createElement("img")
-                cardIMG.src = (data.data[index].image_uris.normal)
+                cardIMG.src = (data.cards[index].imageUrl)
                 cards.appendChild(cardIMG)
                 
             }
