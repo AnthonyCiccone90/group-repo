@@ -20,9 +20,22 @@ function callScryfall(event) {
             var cardsFound = data.cards
             for (let index = 0; index < cardsFound.length; index++) {
                 const element = cardsFound[index];
+                var cardDiv = document.createElement("div")
                 var cardIMG = document.createElement("img")
                 cardIMG.src = (data.cards[index].imageUrl)
-                cards.appendChild(cardIMG)
+                var getArt = data.cards[index].artist
+                var artTag = document.createElement("p")
+                artTag.textContent = `Artist: ${getArt}`
+                var getSet = data.cards[index].setName
+                var setTag = document.createElement("p")
+                setTag.textContent =`Set: ${getSet}`
+                var cardInfo = document.createElement("div")
+                cardInfo.appendChild(artTag)
+                cardInfo.appendChild(setTag)
+                cardDiv.appendChild(cardIMG)
+                cardDiv.appendChild(cardInfo)
+                cards.appendChild(cardDiv)
+                
                 
             }
             })
