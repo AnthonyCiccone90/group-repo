@@ -1,9 +1,10 @@
 var searchedWord = document.getElementById("search")
 var submit = document.querySelector("#submit")
-var cards = document.querySelector("#card-display")
+var cards = document.querySelector("#cards")
 var imagesPop = []
 
 function callScryfall(event) {
+    cards.innerHTML=""
     event.preventDefault()
     var userInput = searchedWord.value
     console.log(userInput)
