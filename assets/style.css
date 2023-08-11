@@ -7,7 +7,7 @@ header {
     background-repeat: no-repeat;
     background-position: top center;
     padding: 260px 0px 80px 0px;
-    border-radius: 20px;
+    border-radius: 0px 0px 50px 50px;
     margin-bottom: 10px;
     background-size: contain;
     background-size: cover;
@@ -30,7 +30,15 @@ form {
     border-radius: 50px;
     width: 100%;
 }
-
+input{
+    margin: 0px 0px 10px 0px;
+}
+#select{
+    margin: 0px 0px 10px 0px;
+}
+#submit{
+    margin: 10px 0px 10px 0px;
+}
 #cards{
     width: 100%;
     display: flex;
@@ -48,14 +56,18 @@ form {
     color: white;
 }
 #cards div{
-    background-color: black;
+    background-color: #116416;
+    border: black 2px solid;
     color: white;
     border-radius: 30px;
     margin: 10px;
 }
-
+.hover div p{
+    margin-left: 15px;
+}
 .hover:hover {
     transform: scale(1.2);
+    border: greenyellow 3px solid;
 }
 
 
