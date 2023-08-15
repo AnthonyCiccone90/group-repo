@@ -14,25 +14,36 @@ function callApis(event) {
     var reqApi1 = `https://api.magicthegathering.io/v1/cards?${userOption}=${userInput}`
     fetch(reqApi1)
         .then((response) => {
-            console.log(response)
+
             return response.json()
         })
         .then((data) => {
-            console.log(data)
             var cardsFound = data.cards
+            console.log(cardsFound)
             for (let index = 0; index < cardsFound.length; index++) {
-                // do second fetch here
-
-                // make sure to rename data from second fetch if necissary
-                // add existing code below to inside of .then inner data
+                var cardName = data.cards[index].multiverseid
+                var reqApi2 = `https://api.scryfall.com/cards/multiverse/${cardName}`
                 const element = cardsFound[index];
-                var cardDiv = document.createElement("div")
+                // do second fetch here
+                fetch(reqApi2)
+                .then((response) => {
+                    console.log(response)
+                    return response.json()
+                })
+                .then((cards2) => {
+                    console.log(cards2)
+                    var price = cards2.prices.usd
+                    var cardDiv = document.createElement("div")
                 var cardIMG = document.createElement("img")
+                var priceTag = document.createElement("p")
+
+                cards2.prices.usd ?
+                priceTag.textContent = `Market Cost: $${price}` : priceTag.textContent = `Price Coming Soon!`
                 
                 // ternary operator that checks if `data.cards.imageUrl contains a URL
                 data.cards[index].imageUrl ? 
                 cardIMG.src = (data.cards[index].imageUrl) : cardIMG.src = './assets/Pictures/mtg_placeholder_2fc0d9ab-fcf0-448a-8c7c-566ae90fbf14_800x.webp'
-
+                
                 console.log('george was here')
                 var getArt = data.cards[index].artist
                 var artTag = document.createElement("p")
@@ -41,15 +52,20 @@ function callApis(event) {
                 var setTag = document.createElement("p")
                 setTag.textContent =`Set: ${getSet}`
                 var cardInfo = document.createElement("div")
+                cardInfo.appendChild(priceTag)
                 cardInfo.appendChild(artTag)
                 cardInfo.appendChild(setTag)
                 cardDiv.appendChild(cardIMG)
                 cardDiv.appendChild(cardInfo)
                 cards.appendChild(cardDiv)
+                })
+                // make sure to rename data from second fetch if necissary
+                // add existing code below to inside of .then inner data
+                
                 
                 
             }
             })
         };
 
-submit.addEventListener("click", callAPis)
+submit.addEventListener("click", callApis)
