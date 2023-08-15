@@ -5,39 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="./assets/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Foldit:wght@300&family=Handjet:wght@300&family=MedievalSharp&display=swap"rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Foldit:wght@300&family=Handjet:wght@300&family=MedievalSharp&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./assets/style.css">
     <title>MTG Project</title>
 </head>
+
 <body>
     <header>
     </header>
     <section>
         <h1>Magic the Gathering Card Search</h1>
         <form>
+            <!-- search bar -->
             <input id="search" class="input is-success" type="text" placeholder="Search a Card!">
             <div class="select is-success">
+                <!-- search options -->
                 <select name="params" id="options">
                     <option value="name">Name</option>
                     <option value="cmc">Converted Mana Cost</option>
                     <option value="type">Type</option>
-                    <option value="subtype">Subtype</option>
+                    <option value="subtypes">Subtypes</option>
                     <option value="rarity">Rarity</option>
                     <option value="artist">Artist</option>
                 </select>
-              </div>  <br>
-              <button id="submit" class="button is-primary is-rounded is-hovered">Search Cards</button>
-            </form>
+            </div> <br>
+            <button id="submit" class="button is-primary is-rounded is-hovered">Search Cards</button>
+        </form>
         </select>
     </section>
-    <section>
-        <div id="card-display"></div>
-        <div id="card-artist"></div>
-        <div id="card-info"></div>
+    <section id="cards">
     </section>
     <script src="./assets/script.js"></script>
 </body>
-</html>
 
+</html>
