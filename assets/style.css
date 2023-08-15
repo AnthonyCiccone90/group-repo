@@ -7,7 +7,7 @@ header {
     background-repeat: no-repeat;
     background-position: top center;
     padding: 260px 0px 80px 0px;
-    border-radius: 0px 0px 50px 50px;
+    border-radius: 0px 0px 0px 50px;
     margin-bottom: 10px;
     background-size: contain;
     background-size: cover;
@@ -23,6 +23,8 @@ h1 {
     font-family: 'Handjet', cursive;
     font-family: 'MedievalSharp', cursive;
 }
+
+/* user input */
 form {
     background-color: black;
     margin-top: 10px;
@@ -30,15 +32,23 @@ form {
     border-radius: 50px;
     width: 100%;
 }
+
+/* search bar */
 input{
     margin: 0px 0px 10px 0px;
 }
+
+/* options in drop down */
 #select{
     margin: 0px 0px 10px 0px;
 }
+
+/* submit button */
 #submit{
     margin: 10px 0px 10px 0px;
 }
+
+/* indivudual divs for each card */
 #cards{
     width: 100%;
     display: flex;
@@ -47,6 +57,7 @@ input{
     justify-content: center;
 } 
 
+/* each individual card */
 #cards img {
     border-radius: 25px;
     width: 325px;
@@ -54,14 +65,23 @@ input{
     padding: 5px 5px 5px 5px;
     background-color: black;
     color: white;
-}
+
+
+/* divs created for each card */
 #cards div{
     background-color: #116416;
     border: black 2px solid;
     color: white;
-    border-radius: 30px;
+    border-radius: 25px;
     margin: 10px;
 }
+
+/* artist and set name of card */
+div div p{
+    margin-left: 20px;
+}
+
+/* enlarges card when hovered over */
 .hover div p{
     margin-left: 15px;
 }
@@ -72,6 +92,7 @@ input{
 
 
 
+/* smartphone view */
 @media screen and (max-width: 600px) {
     h1 {
       color: red;    
@@ -80,6 +101,8 @@ input{
 
   }
 
+
+  /* tablet view */
   @media screen and (min-width: 600px) {
     h1 {
       color: rgb(12, 174, 74);

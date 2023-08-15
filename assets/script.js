@@ -52,4 +52,4 @@ function callApis(event) {
             })
         };
 
-submit.addEventListener("click", callAPis)
+submit.addEventListener("click", callApis)
