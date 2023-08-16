@@ -2,7 +2,28 @@ var searchedWord = document.getElementById("search")
 var submit = document.querySelector("#submit")
 var cards = document.querySelector("#cards")
 var dropdown = document.querySelector("#options")
+var pastSearches = document.querySelector("#history")
 var imagesPop = []
+var searchHistory = []
+
+function addHistory(searchedWord) {
+    if (searchHistory.includes(searchedWord)) {
+      return
+    }
+    searchHistory.push(searchedWord)
+    localStorage.setItem("search-history", searchHistory)
+    renderHistory()
+  }
+
+  function renderHistory() {
+    pastSearches.innerHTML = ""
+    for (let index = 0; index < searchHistory.length; index++) {
+  
+      var li = document.createElement("li")
+      li.textContent = searchHistory[index]
+      pastSearches.append(li)
+    } 
+  }
 
 function callApis(event) {
     // prevents multiple searches to populate at once
@@ -30,6 +51,7 @@ function callApis(event) {
             
         })
         .then((data) => {
+            addHistory(userInput)
             var cardsFound = data.cards
             // second catch to determin if the search results are above zero
             if (cardsFound < 1) {
