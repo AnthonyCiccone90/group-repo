@@ -101,6 +101,7 @@ div div p{
     }
     h1 {
     color: #252be6;
+    font-size: 60px;
   }
   #cards div{
       background-color: #252be6;
@@ -118,6 +119,7 @@ div div p{
     h1 {
       color: red;    
       padding: 20px 0px 20px 0px; 
+      font-size: 40px;
     }
     .hover:hover {
         transform: scale(1.1);
