@@ -5,16 +5,19 @@ var dropdown = document.querySelector("#options")
 var imagesPop = []
 
 function callApis(event) {
+    // prevents multiple searches to populate at once
     cards.innerHTML = ""
+    // keeps current search in search bar
     event.preventDefault()
     var userInput = searchedWord.value
     var userOption = dropdown.value
     console.log(userOption)
     console.log(userInput)
     var reqApi1 = `https://api.magicthegathering.io/v1/cards?${userOption}=${userInput}`
+    // calls first api to populate card images and info
     fetch(reqApi1)
         .then((response) => {
-
+            // first catch if the search aprameters find a bad request
             if (response.status !== 200) {
                 var message = document.createElement("h1")
                 message.innerHTML = `Something went wrong! Try again`
@@ -28,6 +31,7 @@ function callApis(event) {
         })
         .then((data) => {
             var cardsFound = data.cards
+            // second catch to determin if the search results are above zero
             if (cardsFound < 1) {
                 var message2 = document.createElement("h1")
                 message2.innerHTML = `Something went wrong! Try again`
@@ -37,7 +41,7 @@ function callApis(event) {
                 var cardName = data.cards[index].multiverseid
                 var reqApi2 = `https://api.scryfall.com/cards/multiverse/${cardName}`
                 const element = cardsFound[index];
-                // do second fetch here
+                // calls second api to obtain prices
                 fetch(reqApi2)
                     .then((response) => {
                         console.log(response)
@@ -58,6 +62,7 @@ function callApis(event) {
                             cardIMG.src = (data.cards[index].imageUrl) : cardIMG.src = './assets/Pictures/mtg_placeholder_2fc0d9ab-fcf0-448a-8c7c-566ae90fbf14_800x.webp'
 
                         console.log('george was here')
+                        // creates elements to show results from search
                         var getArt = data.cards[index].artist
                         var artTag = document.createElement("p")
                         artTag.textContent = `Artist: ${getArt}`
@@ -72,13 +77,11 @@ function callApis(event) {
                         cardDiv.appendChild(cardInfo)
                         cards.appendChild(cardDiv)
                     })
-                // make sure to rename data from second fetch if necissary
-                // add existing code below to inside of .then inner data
 
 
                 }
             }
         })
 };
-
+// starts the search process to call in apis
 submit.addEventListener("click", callApis)
