@@ -46,9 +46,6 @@ Link to GitHub repository:
 https://github.com/AnthonyCiccone90/group-repo
 
 <hr>
-
-User story provided by University of Denver FSF coding bootcamp
-<hr>
 Created my Jacob Campa, Michael Hannah and Anthony Ciccone 
 <br>
 ©2023
