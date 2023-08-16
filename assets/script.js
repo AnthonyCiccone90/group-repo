@@ -5,7 +5,7 @@ var dropdown = document.querySelector("#options")
 var imagesPop = []
 
 function callApis(event) {
-    cards.innerHTML=""
+    cards.innerHTML = ""
     event.preventDefault()
     var userInput = searchedWord.value
     var userOption = dropdown.value
@@ -15,57 +15,70 @@ function callApis(event) {
     fetch(reqApi1)
         .then((response) => {
 
-            return response.json()
+            if (response.status !== 200) {
+                var message = document.createElement("h1")
+                message.innerHTML = `Something went wrong! Try again`
+                cards.appendChild(message)
+            } else {
+                return response.json()
+                
+            }
+        
+            
         })
         .then((data) => {
             var cardsFound = data.cards
-            console.log(cardsFound)
+            if (cardsFound < 1) {
+                var message2 = document.createElement("h1")
+                message2.innerHTML = `Something went wrong! Try again`
+                cards.appendChild(message2)
+            } else {
             for (let index = 0; index < cardsFound.length; index++) {
                 var cardName = data.cards[index].multiverseid
                 var reqApi2 = `https://api.scryfall.com/cards/multiverse/${cardName}`
                 const element = cardsFound[index];
                 // do second fetch here
                 fetch(reqApi2)
-                .then((response) => {
-                    console.log(response)
-                    return response.json()
-                })
-                .then((cards2) => {
-                    console.log(cards2)
-                    var price = cards2.prices.usd
-                    var cardDiv = document.createElement("div")
-                var cardIMG = document.createElement("img")
-                var priceTag = document.createElement("p")
+                    .then((response) => {
+                        console.log(response)
+                        return response.json()
+                    })
+                    .then((cards2) => {
+                        console.log(cards2)
+                        var price = cards2.prices.usd
+                        var cardDiv = document.createElement("div")
+                        var cardIMG = document.createElement("img")
+                        var priceTag = document.createElement("p")
 
-                cards2.prices.usd ?
-                priceTag.textContent = `Market Cost: $${price}` : priceTag.textContent = `Price Coming Soon!`
-                
-                // ternary operator that checks if `data.cards.imageUrl contains a URL
-                data.cards[index].imageUrl ? 
-                cardIMG.src = (data.cards[index].imageUrl) : cardIMG.src = './assets/Pictures/mtg_placeholder_2fc0d9ab-fcf0-448a-8c7c-566ae90fbf14_800x.webp'
-                
-                console.log('george was here')
-                var getArt = data.cards[index].artist
-                var artTag = document.createElement("p")
-                artTag.textContent = `Artist: ${getArt}`
-                var getSet = data.cards[index].setName
-                var setTag = document.createElement("p")
-                setTag.textContent =`Set: ${getSet}`
-                var cardInfo = document.createElement("div")
-                cardInfo.appendChild(priceTag)
-                cardInfo.appendChild(artTag)
-                cardInfo.appendChild(setTag)
-                cardDiv.appendChild(cardIMG)
-                cardDiv.appendChild(cardInfo)
-                cards.appendChild(cardDiv)
-                })
+                        cards2.prices.usd ?
+                            priceTag.textContent = `Market Cost: $${price}` : priceTag.textContent = `Price Coming Soon!`
+
+                        // ternary operator that checks if `data.cards.imageUrl contains a URL
+                        data.cards[index].imageUrl ?
+                            cardIMG.src = (data.cards[index].imageUrl) : cardIMG.src = './assets/Pictures/mtg_placeholder_2fc0d9ab-fcf0-448a-8c7c-566ae90fbf14_800x.webp'
+
+                        console.log('george was here')
+                        var getArt = data.cards[index].artist
+                        var artTag = document.createElement("p")
+                        artTag.textContent = `Artist: ${getArt}`
+                        var getSet = data.cards[index].setName
+                        var setTag = document.createElement("p")
+                        setTag.textContent = `Set: ${getSet}`
+                        var cardInfo = document.createElement("div")
+                        cardInfo.appendChild(priceTag)
+                        cardInfo.appendChild(artTag)
+                        cardInfo.appendChild(setTag)
+                        cardDiv.appendChild(cardIMG)
+                        cardDiv.appendChild(cardInfo)
+                        cards.appendChild(cardDiv)
+                    })
                 // make sure to rename data from second fetch if necissary
                 // add existing code below to inside of .then inner data
-                
-                
-                
+
+
+                }
             }
-            })
-        };
+        })
+};
 
 submit.addEventListener("click", callApis)
