@@ -40,10 +40,10 @@ https://bulma.io/
 <hr>
 Link to deployed page:
 
-https://anthonyciccone90.github.io/group-repo/
+https://anthonyciccone90.github.io/knockoff-gatherer/
 
 Link to GitHub repository:
-https://github.com/AnthonyCiccone90/group-repo
+https://github.com/AnthonyCiccone90/knockoff-gatherer/
 
 <hr>
 Created my Jacob Campa, Michael Hannah and Anthony Ciccone 
